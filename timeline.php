@@ -36,7 +36,7 @@ add_action('wp_enqueue_scripts', 'timeline_resources');
 function timeline_func( $atts ){
    $displayTimeline = '
 
-<link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900|Fira+Sans:400,400italic" rel="styleshee" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900|Fira+Sans:400,400italic" rel="styleshee"t type="text/css">
 
    <link rel="stylesheet" href="wp-content/plugins/timeline/css/reset.css"> <!-- CSS reset -->
 
