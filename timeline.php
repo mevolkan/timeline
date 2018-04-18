@@ -16,14 +16,30 @@ if ( !defined('ABSPATH')){
 }
 
 
-//[timeline]
+//add the javascript and css to display the timeline
+
+function timeline_resources() {
+    wp_register_style( 'timeline_CSS', plugin_dir_url( __FILE__ ) . 'css/timeline.css' );
+
+   wp_register_style( 'timeline_reset_CSS', plugin_dir_url( __FILE__ ) . 'css/reset.css' );
+   wp_enqueue_style( 'timeline_reset_CSS' );
+   wp_enqueue_style( 'timeline_CSS' );
+
+
+
+   wp_enqueue_script( 'timeline_JS', plugin_dir_url( __FILE__ ) . 'js/timeline.js', array( 'jquery' ) );
+}
+
+add_action('wp_enqueue_scripts', 'timeline_resources');
+
+//[timeline] is the shortcode
 function timeline_func( $atts ){
    $displayTimeline = '
 
 <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900|Fira+Sans:400,400italic" rel="styleshee" type="text/css">
 
    <link rel="stylesheet" href="wp-content/plugins/timeline/css/reset.css"> <!-- CSS reset -->
-   <link rel="stylesheet" href="wp-content/plugins/timeline/css/style2.css"> <!-- Resource style -->
+
    <script src="wp-content/plugins/timeline/js/modernizr.js"></script> <!-- Modernizr -->
 
 
@@ -135,11 +151,7 @@ function timeline_func( $atts ){
       </ol>
    </div> <!-- .events-content -->
 </section>
- 9- 10:16
-
-<script src="wp-content/plugins/timeline/js/jquery-2.1.4.js"></script>
-<script src="wp-content/plugins/timeline/js/jquery.mobile.custom.min.js"></script>
-<script src="wp-content/plugins/timeline/js/main.js"></script> <!-- Resource jQuery -->
+ Volkan dESIGN
 
    ';
    return $displayTimeline;
